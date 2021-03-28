@@ -14,7 +14,7 @@ class Business extends \Illuminate\Foundation\Auth\User implements JWTSubject,\I
 
     protected $rememberTokenName = NULL;
 
-    protected $primaryKey = 'business_id';
+    protected $primaryKey = 'Business_id';
 
     protected $guarded = [];
 
