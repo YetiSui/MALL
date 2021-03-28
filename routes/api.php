@@ -31,3 +31,23 @@ Route::prefix('rider')->namespace('Rider')->group(function () {
     Route::post('logout', 'RiderLoginController@logout');
     Route::post('registered', 'RiderLoginController@registered');
 });//-lzz
+Route::prefix('business')->namespace('Business')->group(function () {
+    Route::post('backgroundapplication', 'BackGroundController@backGroundApplication');
+    Route::post('backgrounddetails', 'BackGroundController@bckGoundDtails');
+    Route::post('backgroundnewstore', 'BackGroundController@backGroundNewstore');
+    Route::post('storebusinessstatus', 'BusinessOrdersController@storeBusinessStatus');
+    Route::post('orderall', 'BusinessOrdersController@orderAll');
+    Route::post('storeallmessages', 'BackGroundController@storeAllMessages');
+    Route::post('storemessagedetails', 'BackGroundController@storeMessageDetails');
+    Route::post('storesendmessage', 'BackGroundController@storeSendMessage');
+});//-wdz
+Route::prefix('buyer')->namespace('Buyer')->group(function () {
+    Route::post('buyerinformation', 'BuyerController@buyerInformation');
+    Route::post('buyeraddress', 'BuyerController@buyerAddress');
+    Route::post('buyerdefault', 'BuyerController@buyerDefault');
+    Route::post('buyerdelete', 'BuyerController@buyerDelete');
+    Route::post('buyeraddto', 'BuyerController@buyerAddto');
+    Route::post('buyerallmessages', 'BuyerController@buyerAllMessages');
+    Route::post('buyermessagedetails', 'BuyerController@buyerMessageDetails');
+    Route::post('buyersendmessage', 'BuyerController@buyerSendMessage');
+});//-wdz
