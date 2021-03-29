@@ -21,7 +21,7 @@ class Chat3 extends Model
     public static function cm_showAllMessages($Rider_id){
         try {
 
-            $res = Chat1::where('Rider_id','=',$Rider_id)
+            $res = Chat3::where('Rider_id','=',$Rider_id)
                 ->get();
             return $res ;
         }catch (\Exception $e){
@@ -40,7 +40,7 @@ class Chat3 extends Model
      */
     public static function cm_showMessageDetails($Rider_id, $User_id){
         try {
-            $res = Chat2::where('User_id','=',$User_id)
+            $res = Chat3::where('User_id','=',$User_id)
                 ->where('Rider_id','=',$Rider_id)
                 ->get();
             return $res ;
@@ -62,8 +62,8 @@ class Chat3 extends Model
 
     public static function cm_SendMessage($Rider_id,$Id,$Chat_text){
         try {
-            $res = Chat2::insert([
-                'Id'=>$Id,
+            $res = Chat3::insert([
+                'User_id'=>$Id,
                 'Rider_id'=>$Rider_id,
                 'Chat_text'=>$Chat_text
             ]);

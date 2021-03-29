@@ -62,7 +62,7 @@ class Chat2 extends Model
     public static function cm_SendMessage($Rider_id,$Id,$Chat_text){
         try {
             $res = Chat2::insert([
-                'Id'=>$Id,
+                'Business_id'=>$Id,
                 'Rider_id'=>$Rider_id,
                 'Chat_text'=>$Chat_text
             ]);
