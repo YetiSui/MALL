@@ -47,7 +47,7 @@ class BusinessLoginController extends Controller
 
     protected function credentials($request)
     {
-        return ['Business_number' => $request['Business_number'], 'Business_password' => $request['Business_password']];
+        return ['Business_number' => $request['Business_number'], 'password' => $request['password']];
     }
 
     protected function respondWithToken($token, $msg)
@@ -75,7 +75,7 @@ class BusinessLoginController extends Controller
     protected function userHandle($request)
     {
         $registeredInfo = $request->except('password_confirmation');
-        $registeredInfo['Business_Password'] = bcrypt($registeredInfo['Business_Password']);
+        $registeredInfo['password'] = bcrypt($registeredInfo['password']);
         $registeredInfo['Business_number'] = $registeredInfo['Business_number'];
         return $registeredInfo;
     }
