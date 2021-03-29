@@ -50,7 +50,7 @@ class Store extends Model
             }
         }catch (\Exception $e){
             logError('搜索错误', [$e->getMessage()]);
-            return false;
+            return false;}}
 
 
     /**
@@ -99,7 +99,7 @@ class Store extends Model
                 ->get();
             return $data[0]['Store_id'];
         }catch(\Exception $e){
-            logError('获取美食商品店铺失败',[$e->getMessage()]);
+            logError('获取美食商品店铺失败',[$e->getMessage()]);}}
 
 
     /**
@@ -207,7 +207,7 @@ class Store extends Model
                 ->get();
             return $data[0]['Store_id'];
         }catch(\Exception $e){
-            logError('获取美食商品店铺成功',[$e->getMessage()]);
+            logError('获取美食商品店铺成功',[$e->getMessage()]);}}
 /**
      * 审核店铺
      * @auther ZhongChun <github.com/RobbEr929>
@@ -264,7 +264,7 @@ class Store extends Model
                 ->get();
             return $data[0]['Store_id'];
         }catch(\Exception $e){
-            logError('获取美食商品店铺成功',[$e->getMessage()]);
+            logError('获取美食商品店铺成功',[$e->getMessage()]);}}
 
     public static function zc_showhomepage($store_id)
     {

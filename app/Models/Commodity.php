@@ -27,7 +27,8 @@ class Commodity extends Model
             return $data;
         }catch(\Exception $e){
             logError('商家左侧分类展示成功',[$e->getMessage()]);
-
+}
+}
 
     /**
      * 展示分类下商品
@@ -62,7 +63,7 @@ class Commodity extends Model
                 ->get();
             return $data;
         }catch(\Exception $e){
-            logError('商家左侧分类展示成功',[$e->getMessage()]);
+            logError('商家左侧分类展示成功',[$e->getMessage()]);}}
 
     /**
      * 回显指定商品
@@ -95,8 +96,8 @@ class Commodity extends Model
                 ->get();
             return $data;
         }catch(\Exception $e){
-            logError('商家左侧分类展示成功',[$e->getMessage()]);
-
+            logError('商家左侧分类展示成功',[$e->getMessage()]);}}
+/** 
      * 展示分类下商品
      * @auther ZhongChun <github.com/RobbEr929>
      * @param $store_id ,$commodity_id ,$commodity_name ,$commodity_photo ,$commodity_number ,$commodity_price
@@ -135,8 +136,8 @@ class Commodity extends Model
                 ->get();
             return $data;
         }catch(\Exception $e){
-            logError('搜索成功',[$e->getMessage()]);
-
+            logError('搜索成功',[$e->getMessage()]);}}
+/** 
      * 修改库存价格
      * @auther ZhongChun <github.com/RobbEr929>
      * @param $commodity_id ,$commodity_number ,$commodity_price
@@ -170,8 +171,8 @@ class Commodity extends Model
                 ->get();
             return $data;
         }catch(\Exception $e){
-            logError('搜索成功',[$e->getMessage()]);
-
+            logError('搜索成功',[$e->getMessage()]);}}
+/** 
      * 下架
      * @auther ZhongChun <github.com/RobbEr929>
      * @param $commodity_id ,$commodity_number ,$commodity_price
@@ -203,8 +204,8 @@ class Commodity extends Model
                 ->get();
             return $data;
         }catch(\Exception $e){
-            logError('搜索成功',[$e->getMessage()]);
-
+            logError('搜索成功',[$e->getMessage()]);}}
+/** 
      * 修改库存价格
      * @auther ZhongChun <github.com/RobbEr929>
      * @param $commodity_id ,$commodity_name ,$commodity_photo

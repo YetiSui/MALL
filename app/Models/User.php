@@ -27,7 +27,10 @@ class User extends Model
                 false;
 
         }catch (\Exception $e){
+            logError('错误',[$e->getMessage()]);
+            return null;
 
+        }
         }
 
 /**

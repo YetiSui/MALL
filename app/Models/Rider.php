@@ -13,7 +13,6 @@ class Rider extends \Illuminate\Foundation\Auth\User implements JWTSubject,\Illu
     public $table = 'rider';
     protected $rememberTokenName = NULL;
 
-    protected $primaryKey = 'rider_id';
 
 
     protected $primaryKey = 'Rider_id';
@@ -82,7 +81,7 @@ class Rider extends \Illuminate\Foundation\Auth\User implements JWTSubject,\Illu
 
             return $res;
         }catch (Exception $e){
-            logError("存入失败",[$e->getMessage()]);
+            logError("存入失败",[$e->getMessage()]);}}
 
     /**
      * 骑手系统我的界面个人信息

@@ -26,7 +26,11 @@ class Chat2 extends Model
                 $res :
                 false;
         }catch (\Exception $e){
+            logError('错误',[$e->getMessage()]);
+            return null;
 
+        }
+    }
 
 
     /**
@@ -65,6 +69,11 @@ class Chat2 extends Model
                 $res :
                 false;
         }catch (\Exception $e){
+            logError('错误',[$e->getMessage()]);
+            return null;
+
+        }
+    }
 
 /**
      * 骑手商家消息对话框

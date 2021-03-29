@@ -95,8 +95,9 @@ class Address extends Model
                 false;
 
         }catch (\Exception $e){
-
-        }
+            logError('失败',[$e->getMessage()]);
+            return null;
+        }}
 
 
     /**

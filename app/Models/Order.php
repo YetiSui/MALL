@@ -52,7 +52,11 @@ class Order extends Model
                     $res :
                     false;
             }
-        }catch (\Exception $e){
+        }catch (\Exception $e){    logError('错误',[$e->getMessage()]);
+            return null;
+
+        }
+    }
 
 
 
@@ -88,8 +92,8 @@ class Order extends Model
                 ->get();
             return $data[0]['Order_id'];
         }catch(\Exception $e){
-            logError('Order_id查找失败。',[$e->getMessage()]);
-
+            logError('Order_id查找失败。',[$e->getMessage()]);}}
+/** 
      * 骑手系统首页订单信息
      * @author ChenMiao <github.com/Yidaaa-u>
      * @param String $Rider_id
@@ -127,8 +131,8 @@ class Order extends Model
                 ->get();
             return $data;
         }catch(\Exception $e){
-            logError('查找失败',[$e->getMessage()]);
-
+            logError('查找失败',[$e->getMessage()]);}}
+/** 
      * 骑手系统首页确认到店
      * @author ChenMiao <github.com/Yidaaa-u>
      * @param String $Order_id
@@ -164,7 +168,7 @@ class Order extends Model
                 ->get();
             return $data;
         }catch(\Exception $e){
-            logError('查找失败',[$e->getMessage()]);
+            logError('查找失败',[$e->getMessage()]);}}
 
     /**
      * 骑手系统首页确认送出
@@ -221,7 +225,7 @@ class Order extends Model
                 ->get();
             return $data;
         }catch(\Exception $e){
-            logError('查找某个详细页面失败',[$e->getMessage()]);
+            logError('查找某个详细页面失败',[$e->getMessage()]);}}
 /**
      * 骑手系统首页订单信息搜索
      * @author ChenMiao <github.com/Yidaaa-u>
