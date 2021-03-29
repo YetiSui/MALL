@@ -12,6 +12,24 @@ class Chat2 extends Model
     protected $guarded = [];
 
     /**
+     *商家所有消息
+     * @auther
+     * @param xxxRequest $request
+     * @return json
+     */
+    public static function wdz_showAllMessages($businessId){
+        try {
+
+            $res = Chat2::where('Business_id','=',$businessId)
+                ->get();
+            return $res ?
+                $res :
+                false;
+        }catch (\Exception $e){
+
+
+
+    /**
      * 骑手所有消息预览（商家部分）
      * @author ChenMiao <github.com/Yidaaa-u>
      * @param String $Rider_id
@@ -26,10 +44,29 @@ class Chat2 extends Model
         }catch (\Exception $e){
             logError('骑手所有消息错误',[$e->getMessage()]);
             return null;
+
         }
     }
 
     /**
+
+     *商家聊天详情
+     * @auther
+     * @param xxxRequest $request
+     * @return json
+     */
+    public static function wdz_showMessageDetails($businessId,$userId){
+        try {
+
+            $res = Chat2::where('Business_id','=',$businessId)
+                ->where('Rider_id','=',$userId)
+                ->get();
+            return $res ?
+                $res :
+                false;
+        }catch (\Exception $e){
+
+/**
      * 骑手商家消息对话框
      * @author ChenMiao <github.com/Yidaaa-u>
      * @param String $Rider_id,$Business_id
@@ -46,10 +83,34 @@ class Chat2 extends Model
         }catch (\Exception $e){
             logError('骑手商家消息错误',[$e->getMessage()]);
             return null;
+
         }
     }
 
     /**
+
+     *商家发送消息
+     * @autherwangdezhi
+     * @param xxxRequest $request
+     * @return json
+     */
+
+    public static function wdz_SendMessage($businessId,$RiderId,$chatText){
+        try {
+
+            $res = Chat2::insert([
+                'Business_id'=>$businessId,
+                'Rider_id'=>$RiderId,
+                'Chat_text'=>$chatText
+            ]);
+            return $res ?
+                $res :
+                false;
+        }catch (\Exception $e){
+
+        }
+    }
+/**
      *骑手发送消息给商家
      * @author ChenMiao <github.com/Yidaaa-u>
      * @param String $Rider_id,$Business_id，$Chat_text
@@ -72,5 +133,6 @@ class Chat2 extends Model
             return null;
         }
     }
+
 
 }

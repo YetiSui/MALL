@@ -12,6 +12,51 @@ class Order extends Model
     protected $guarded = [];
 
     /**
+     *
+     * @autherwangdezhi
+     * @param showRequest $request
+     * @return json
+     */
+    public static function wdz_showOrder($storeId,$orderAudit){
+        try{
+            if ($orderAudit == 0){
+                $res = self::Join('order_items','order.Order_id','order_items.Order_id')
+                    ->Join('commodity','order_items.Commodity_id','commodity.Commodity_id')
+                    ->Join('store','commodity.Store_id','store.Store_id')
+                    ->where('order.User_id',$storeId)
+                    ->select('order.Order_id','order.Store_id','store.Store_name','commodity.Commodity_name','commodity.Commodity_photo','store.Store_Avatar','order.Order_Audit')
+                    ->get();
+                return $res ?
+                    $res :
+                    false;
+            }elseif ($orderAudit == 1){
+                $res = self::Join('order_items','order.Order_id','order_items.Order_id')
+                    ->Join('commodity','order_items.Commodity_id','commodity.Commodity_id')
+                    ->Join('store','commodity.Store_id','store.Store_id')
+                    ->where('order.User_id',$storeId)
+                    ->where('Order_Audit','=',1)
+                    ->select('order.Order_id','order.Store_id','store.Store_name','commodity.Commodity_name','commodity.Commodity_photo','store.Store_Avatar','order.Order_evaluation','order.Order_Audit')
+                    ->get();
+                return $res ?
+                    $res :
+                    false;
+            }elseif ($orderAudit == 1) {
+                $res = self::Join('order_items','order.Order_id','order_items.Order_id')
+                    ->Join('commodity','order_items.Commodity_id','commodity.Commodity_id')
+                    ->Join('store','commodity.Store_id','store.Store_id')
+                    ->where('order.User_id',$storeId)
+                    ->where('Order_Audit','=',2)
+                    ->select('order.Order_id','order.Store_id','store.Store_name','commodity.Commodity_name','commodity.Commodity_photo','store.Store_Avatar','order.Order_Audit')
+                    ->get();
+                return $res ?
+                    $res :
+                    false;
+            }
+        }catch (\Exception $e){
+
+
+
+    /**
 
      * @author DuJingWen <github.com/DJWKK>
      * @param $number
@@ -177,7 +222,7 @@ class Order extends Model
             return $data;
         }catch(\Exception $e){
             logError('查找某个详细页面失败',[$e->getMessage()]);
-
+/**
      * 骑手系统首页订单信息搜索
      * @author ChenMiao <github.com/Yidaaa-u>
      * @param String $Rider_id  $input
@@ -271,6 +316,7 @@ class Order extends Model
         }catch(\Exception $e){
             logError('订单提交成功',[$e->getMessage()]);
             return null;
+
         }
     }
 

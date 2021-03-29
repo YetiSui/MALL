@@ -12,6 +12,25 @@ class User extends Model
     protected $guarded = [];
 
     /**
+
+     *展示个人信息
+     * @autherwangdezhi
+     * @param xxxRequest $request
+     * @return json
+     */
+    public static function wdz_show($userId){
+        try {
+            $res = User::where('User_id','=',$userId)
+                ->get();
+            return $res ?
+                $res :
+                false;
+
+        }catch (\Exception $e){
+
+        }
+
+/**
      * @param $user_id
      * @return |null
      * 获取用户地址 两次用到。
@@ -92,6 +111,7 @@ class User extends Model
             logError('星级点评失败',[$e->getMessage()]);
             return null;
         }
+
     }
 
 }
