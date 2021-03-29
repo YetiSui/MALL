@@ -79,4 +79,10 @@ class AdminLoginController extends Controller
         $registeredInfo['username'] = $registeredInfo['username'];
         return $registeredInfo;
     }
+
+    public function lzztest(){
+        $id = auth('api')->user()->admin_id;
+        dd($id);
+    }
+
 }
