@@ -48,7 +48,7 @@ class RiderLoginController extends Controller
 
     protected function credentials($request)
     {
-        return ['username' => $request['username'], 'Rider_password' => $request['Rider_password']];
+        return ['Rider_name' => $request['Rider_name'], 'password' => $request['password']];
     }
 
     protected function respondWithToken($token, $msg)
@@ -76,7 +76,7 @@ class RiderLoginController extends Controller
     protected function userHandle($request)
     {
         $registeredInfo = $request->except('password_confirmation');
-        $registeredInfo['Rider_password'] = bcrypt($registeredInfo['Rider_password']);
+        $registeredInfo['password'] = bcrypt($registeredInfo['password']);
         $registeredInfo['Rider_name'] = $registeredInfo['Rider_name'];
         return $registeredInfo;
     }
